@@ -1,26 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <MapFrame />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MapFrame from './components/MapFrame.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MapFrame,
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
