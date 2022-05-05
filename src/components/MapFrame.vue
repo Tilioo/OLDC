@@ -1,17 +1,39 @@
 <template>
-  <div class="bg-gray-600 text-white w-1/2 m-auto mt-12">
-    <div class="text-center border-2 border-black">
-      <h1>Map</h1>
-    </div>
-    <div class="text-center bg-blue-700">
-    <h1>Test</h1>
-
-    </div>
+  <div ref="map-root" style="width: 100%; height: 100%">
   </div>
 </template>
 
 <script>
+import View from "ol/View";
+import Map from "ol/Map";
+import TileLayer from "ol/layer/Tile";
+import OSM from "ol/source/OSM";
+
+import "ol/ol.css";
+
 export default {
   name: "MapFrame",
+  components: {},
+  props: {},
+  mounted() {
+    // this is where we create the OpenLayers map
+    new Map({
+      // the map will be created using the 'map-root' ref
+      target: this.$refs["map-root"],
+      layers: [
+        // adding a background tiled layer
+        new TileLayer({
+          source: new OSM(), // tiles are served by OpenStreetMap
+        }),
+      ],
+
+      // the map view will initially show the whole world
+      view: new View({
+        zoom: 0,
+        center: [0, 0],
+        constrainResolution: true,
+      }),
+    });
+  },
 };
 </script>
